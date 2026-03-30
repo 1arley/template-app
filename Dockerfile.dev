@@ -12,9 +12,6 @@ COPY prisma ./prisma/
 # 3. Instala as dependências
 RUN npm install
 
-# 3. Agora o install vai funcionar, pois o prisma generate achará o schema
-RUN npm install
-
 # 4. Copia o restante dos arquivos
 COPY . .
 
