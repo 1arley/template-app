@@ -30,8 +30,8 @@ export class RegisterDto {
     password: string
 
     @ApiProperty({
-        example: 'USER',
-        description: 'Role do usuário',
+        example: 'ADMIN',
+        description: 'Nível de acesso (Vai, tenta colocar ADMIN aí pra ver o que acontece kkk)',
         enum: Role,
         required: false,
         default: Role.USER,

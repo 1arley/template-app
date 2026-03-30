@@ -1,19 +1,21 @@
 # Development Dockerfile
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
-# Install dependencies
+# 1. Copia os arquivos de dependências
 COPY package*.json ./
-RUN npm install
 
-# Copy prisma
+# 2. Copia a pasta prisma ANTES do install
 COPY prisma ./prisma/
 
-# Generate Prisma Client
-RUN npx prisma generate
+# 3. Instala as dependências
+RUN npm install
 
-# Copy source code
+# 3. Agora o install vai funcionar, pois o prisma generate achará o schema
+RUN npm install
+
+# 4. Copia o restante dos arquivos
 COPY . .
 
 # Expose port
